@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: thoughts-enhanced-db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: thoughts
+    ports:
+      - '5432:5432'
+    volumes:
+      -  db:/var/lib/postgresql/data
+  web:
+    build: .
+    ports: 
+      - "8060:8060"
+
+  api:
+
+
+
+# defining services + telling docker how to build the specific images and how to run the images
+# properties will be used when running the container
