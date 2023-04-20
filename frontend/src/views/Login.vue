@@ -23,7 +23,6 @@ export default {
         name="email"
         id="email"
         placeholder="Email address"
-		<button @click="sendLogin()"
       />
     </p>
     <p>

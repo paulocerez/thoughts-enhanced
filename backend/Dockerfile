@@ -6,6 +6,6 @@ RUN npm install
 COPY . ./
 RUN npx prisma generate
 
-EXPOSE 3001
+# EXPOSE 3001
 
 CMD ["npm", "start"]

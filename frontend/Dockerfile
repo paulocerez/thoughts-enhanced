@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /frontend
 
-RUN npm i -g nodemon
+# RUN npm i -g nodemon
 
 COPY package*.json ./
 RUN npm install
