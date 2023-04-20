@@ -1,15 +1,31 @@
-<script setup lang="ts">
-import '../style.css'
+<script lang="ts">
+import './style.css'
 import Navbar from './components/Navbar.vue'
-import ThoughtHistoryfrom './components/ThoughtHistory.vue'
+
+export default {
+	data () {
+		return {
+
+		}
+	},
+	components: { Navbar },
+	// computed: {
+	// 	authed () {
+			
+	// 	}
+	// }
+}
 
 </script>
 
 <template>
-  <Navbar/>
-  <router-view/>
+  	<Navbar/>
+  	<router-view/>
 </template>
 
 <style scoped>
-
+	h1 {
+		color: black
+	}
 </style>
+

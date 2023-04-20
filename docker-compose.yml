@@ -36,6 +36,7 @@ services:
     restart: always
     ports:
       - 3001:3001
+  
   web:
     container_name: thoughts-enhanced-web
     # build image based on the backend folder

@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
 	// method to create a router instance
-	// creates a history object that uses the HTML5 history API to manipulate the browser's URL without triggering a page refresh
-	history: createWebHistory(),
-	// specifying the routes
+	// creates a history object that uses the HTML5 history API to manipulate the browser's URL without triggering a page refresh -> switching between routes
+	history: createWebHistory(process.env.BASE_URL),
+	// specifying the "lazyload" routes
 	routes: [
 		{
 			path: "/",
@@ -22,10 +22,17 @@ const router = createRouter({
 			}
 		},
 		{
-			path: "/thought",
-			component: () => import("../views/ThoughtPage.vue"),
+			path: "/signup",
+			component: () => import("../views/Signup.vue"),
 			meta: {
-				title: 'Thought'
+				title: 'Signup'
+			}
+		},
+		{
+			path: "/login",
+			component: () => import("../views/Login.vue"),
+			meta: {
+				title: 'Login'
 			}
 		},
 
