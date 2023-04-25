@@ -9,23 +9,30 @@ const router = createRouter({
 	routes: [
 		{
 			path: "/",
-			component: () => import("../views/ThoughtsOverview.vue"),
+			component: () => import("../views/Sample.vue"),
+			meta: {
+				title: 'Thoughts'
+			}
+		},
+		{
+			path: "/thought",
+			component: () => import("../views/ThoughtPage.vue"),
+			meta: {
+				title: 'Thought'
+			}
+		},
+		{
+			path: "/history",
+			component: () => import("../views/ThoughtHistory.vue"),
+			meta: {
+				title: 'History'
+			}
+		},
+		{
+			path: "/overview",
+			component: () => import("../views/ThoughtOverview.vue"),
 			meta: {
 				title: 'Overview'
-			}
-		},
-		{
-			path: "/thought",
-			component: () => import("../views/ThoughtPage.vue"),
-			meta: {
-				title: 'Thought'
-			}
-		},
-		{
-			path: "/thought",
-			component: () => import("../views/ThoughtPage.vue"),
-			meta: {
-				title: 'Thought'
 			}
 		},
 

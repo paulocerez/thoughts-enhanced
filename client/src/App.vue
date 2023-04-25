@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import '../style.css'
+import MainHeader from './components/MainHeader.vue';
 import Navbar from './components/Navbar.vue'
-import ThoughtHistoryfrom './components/ThoughtHistory.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const signOut = async () => {
+  router.push('/');
+}
+
 
 </script>
 
 <template>
-  <Navbar/>
+  <MainHeader />
   <router-view/>
 </template>
 

@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import Navbar from './Navbar.vue'
 
 </script>
 
 <template>
-
-<!-- essentially consists of the Navbar + Logo + Signup/Logout Button -->
-
-	<Navbar/>
 
 
 </template>

@@ -22,6 +22,14 @@ app.post('/user', async (req, res) => {
     console.log(user)
 });
 
+// Auth routes
+
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+
+app.use('/', indexRouter);
+app.use('/', authRouter);
+
 // Start the server
 
 const PORT = 3001;
