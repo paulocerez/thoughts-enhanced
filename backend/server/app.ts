@@ -18,7 +18,7 @@ const prisma = new PrismaClient();
 // Routes
 
 app.get('/', (req: any, res: any) => {
-  res.send('Hello, my friends');
+  res.send('Hello, Micho');
 });
 
 app.post('/user', async (req: any, res: any) => {
