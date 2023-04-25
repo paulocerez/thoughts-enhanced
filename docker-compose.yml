@@ -31,15 +31,15 @@ services:
 
   api:
     container_name: thoughts-enhanced-api
-    # build image based on the backend folder
-    build: ./backend
+    # build image based on the server folder
+    build: ./server
     restart: always
     ports:
       - 3001:3001
   web:
     container_name: thoughts-enhanced-web
-    # build image based on the backend folder
-    build: ./frontend
+    # build image based on the server folder
+    build: ./client
     restart: always
     ports: 
       - 5173:5173
