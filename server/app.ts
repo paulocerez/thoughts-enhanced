@@ -24,11 +24,11 @@ app.post('/user', async (req, res) => {
 
 // Auth routes
 
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
+// const indexRouter = require('./routes/index');
+// const authRouter = require('./routes/auth');
 
-app.use('/', indexRouter);
-app.use('/', authRouter);
+// app.use('/', indexRouter);
+// app.use('/', authRouter);
 
 // Start the server
 

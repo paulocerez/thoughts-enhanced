@@ -6,11 +6,24 @@ import { useRouter } from 'vue-router'
 </script>
 
 <template>
-	<router-link to="/"></router-link><span>overview</span>
-	<router-link to="/thought"></router-link><span>leave a thought</span>
-	<router-link to="/history"></router-link><span>thought history</span>
-	<router-link to="/friendsarea"></router-link><span>friends area</span>
-	<router-link to="/about"></router-link><span>about us</span>
+	<ul class="">
+		<li>
+			<router-link to="/" class="w-full text-2xl flex justify-center items-center px-4 py-2 rounded-lg hover:bg-secondary transition-all"></router-link><span>overview</span>
+		</li>
+		<li>
+			<router-link to="/thought" class="w-full text-2xl flex justify-center items-center px-4 py-2 rounded-lg hover:bg-secondary transition-all"></router-link><span>leave a thought</span>
+		</li>
+		<li>
+			<router-link to="/history" class="w-full text-2xl flex justify-center items-center px-4 py-2 rounded-lg hover:bg-secondary transition-all"></router-link><span>thought history</span>
+		</li>
+		<li>	
+			<router-link to="/friendsarea" class="w-full text-2xl flex justify-center items-center px-4 py-2 rounded-lg hover:bg-secondary transition-all"></router-link><span>friends area</span>
+		</li>
+		<li>
+			<router-link to="/about" class="w-full text-2xl flex justify-center items-center px-4 py-2 rounded-lg hover:bg-secondary transition-all"></router-link><span>about us</span>
+		</li>
+
+	</ul>
 
 
 </template>

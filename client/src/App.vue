@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '../style.css'
+import './style.css'
 import MainHeader from './components/MainHeader.vue';
 import Navbar from './components/Navbar.vue'
 import { useRouter } from 'vue-router'
