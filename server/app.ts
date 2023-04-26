@@ -1,10 +1,19 @@
 // Imports
 
 import express from 'express';
-const app = express();
-
 import { PrismaClient } from '@prisma/client';
+
+const app = express();
 const prisma = new PrismaClient();
+
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const authRouter = require('./routes/auth');
+
+app.use(bodyParser.json());
+app.use(cors());
+
+app.use('/api/auth', authRouter);
 
 // Routes
 
@@ -24,11 +33,13 @@ app.post('/user', async (req, res) => {
 
 // Auth routes
 
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
 
-app.use('/', indexRouter);
-app.use('/', authRouter);
+
+// const indexRouter = require('./routes/index');
+// const authRouter = require('./routes/auth');
+
+// app.use('/', indexRouter);
+// app.use('/', authRouter);
 
 // Start the server
 
