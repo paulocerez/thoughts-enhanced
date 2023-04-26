@@ -8,7 +8,9 @@ export default {
 </script>
 
 <template>
-	<button class="signup-button text-sm font-medium">sign in</button>
+	<button class="signup-button text-sm font-medium">
+		<router-link to="/login">sign in</router-link>
+	</button>
 </template>
 
 <style>

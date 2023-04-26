@@ -1,13 +1,18 @@
-<script setup lang="ts">
+<script lang="ts">
 import './style.css';
-// import Navbar from './components/Navbar.vue'
 import Nav from './components/Nav.vue';
-import { useRouter } from 'vue-router';
 
-const router = useRouter()
+// const signOut = async () => {
+//   router.push('/');
+// }
 
-const signOut = async () => {
-  router.push('/');
+export default {
+//   data () {
+//     return {
+//       user: null
+//     }
+//   },
+  components: { Nav },
 }
 
 
@@ -16,7 +21,7 @@ const signOut = async () => {
 <template>
 	<Nav/>
 	<div class="bg-transparent w-full h-full py-16 px-32">
-      <RouterView />
+      <router-view/>
     </div>
 </template>
 

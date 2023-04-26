@@ -1,9 +1,10 @@
 <template>
-	<div class="fixed top-0 left-0 w-full z-50">
+	<!-- Main Wrapper -->
+	<div class="fixed w-full left-0 top-0 z-50 px-80">
 	<Disclosure as="nav" class="black" v-slot="{ open }">
-	  <div class="w-full px-2 sm:px-16 lg:px-48">
 		<div class="relative flex h-20 items-center justify-evenly">
 		  <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
 			<!-- Mobile menu button-->
 			<DisclosureButton class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
 			  <span class="sr-only">Open main menu</span>
@@ -20,16 +21,28 @@
 		  </div>
 		  <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-evenly">
 			<div class="hidden sm:ml-6 sm:block">
-			  <div class="flex space-x-24 justify-evenly">
-				<router-link v-for="item in navigationItems" :key="item.name" :to="item.link" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-sky-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
-				<a href="https://github.com/paulocerez/thoughts-enhanced.git" class="rounded-md hover:underline px-3 py-2 text-sm font-medium'">view on GitHub</a>
+			  <div class="flex ml:space-x-24 sm:space-x-auto justify-evenly">
+
+				<!-- Navbar Elements with Routes -->
+				<div>
+					<router-link v-for="item in navigationItems" :key="item.name" :to="item.link"
+						:class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-sky-600 hover:text-white', 'rounded-md px-6 py-3 text-sm font-medium']"
+						:aria-current="item.current ? 'page' : undefined">
+						{{ item.name }}
+					</router-link>	
+					<!-- <div v-if="!item.existing">
+						<Badge/>
+					</div> -->
+					<!-- link to GitHub Repo -->
+					<a href="https://github.com/paulocerez/thoughts-enhanced.git" class="rounded-md hover:underline px-6 py-3 text-sm font-medium'">view on GitHub</a>
+				</div>
 			  </div>
 			</div>
 		  </div>
 		  <Button/>
 
 
-		</div>
+
 	  </div>
   
 	  <DisclosurePanel class="sm:hidden">
@@ -44,13 +57,14 @@
 <script setup lang="ts">
   import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
   import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-  import Button from './Button.vue'
+  import Button from './SignInButton.vue'
+  import Badge from './Badge.vue'
   
   const navigationItems = [
-	{ name: 'leave a thought', link: '/thought', current: false },
-	{ name: 'history', link: '/history', current: false },
-	{ name: 'friends area', link: '/friendsarea', current: false },
-	{ name: 'about us', link: '/about', current: false },
-	{ name: 'your profile', link: '/profile', current: false }
+	{ name: 'leave a thought', link: '/thought', current: false, existing: true },
+	{ name: 'history', link: '/history', current: false, existing: true },
+	{ name: 'friends area', link: '/friendsarea', current: false, existing: false },
+	{ name: 'about us', link: '/about', current: false, existing: false },
+	{ name: 'your profile', link: '/profile', current: false, existing: true }
   ]
 </script>
