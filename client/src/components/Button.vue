@@ -8,17 +8,15 @@ export default {
 </script>
 
 <template>
-	<button class="signup-button">sign up</button>
+	<button class="signup-button text-sm font-medium">sign in</button>
 </template>
 
 <style>
 	.signup-button {
 		padding: 10px 20px;
 		border: none;
-		font-size: 17px;
 		color: #fff;
 		border-radius: 7px;
-		font-weight: 500;
 		-webkit-transition: 0.5s;
 		transition: 0.5s;
 		-webkit-transition-property: -webkit-box-shadow;
