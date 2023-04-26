@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import Navbar from './Navbar.vue'
+// import Navbar from './Navbar.vue'
+import Nav from './Nav.vue'
 
 </script>
 
@@ -9,8 +10,8 @@ import Navbar from './Navbar.vue'
 
 <!-- essentially consists of the Navbar + Logo + Signup/Logout Button -->
 
-	<Navbar/>
-
+	<Nav/>
+	
 
 </template>
 

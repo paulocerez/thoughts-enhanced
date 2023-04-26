@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import './style.css'
+import './style.css';
 import MainHeader from './components/MainHeader.vue';
-import Navbar from './components/Navbar.vue'
-import { useRouter } from 'vue-router'
+// import Navbar from './components/Navbar.vue'
+import Nav from './components/Nav.vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter()
 
@@ -14,8 +15,8 @@ const signOut = async () => {
 </script>
 
 <template>
-  <MainHeader />
-  <router-view/>
+	<Nav/>
+	<router-view/>
 </template>
 
 <style scoped>
