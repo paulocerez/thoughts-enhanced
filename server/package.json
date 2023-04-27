@@ -1,10 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.ts"
+    "start": "nodemon server/app.ts"
   },
   "author": "",
   "license": "ISC",

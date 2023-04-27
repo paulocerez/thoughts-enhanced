@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     watch: {
+	// usePolling -> watch in file system for changes at a regular interval, works across different operating systems
       usePolling: true,
     },
     host: true, // needed for the Docker Container port mapping to work
-    strictPort: true,
+    strictPort: true,  // prevents Vite from starting if Port is used already
     port: 5173
   } 
 })

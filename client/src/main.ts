@@ -12,4 +12,3 @@ app.use(router)
 // .mount()-method makes the application instance render -> expects a container element (either DOM element or selector string)
 app.mount('#app') // see DOM element in index.html
 // -> content of the root component will be rendered inside the container element
-
