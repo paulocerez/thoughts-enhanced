@@ -4,7 +4,8 @@
   "main": "server/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/app.ts"
+    "start": "nodemon server/app.ts",
+	"build": "tsc"
   },
   "author": "",
   "license": "ISC",
