@@ -6,7 +6,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form @submit.prevent="handleSubmit" class="space-y-6">
         <div>
           <label for="email" class="block text-left text-sm font-medium leading-6 text-white-900">email address</label>
           <div class="mt-2">
@@ -26,7 +26,7 @@
         </div>
 
         <div>
-          <button @click="signupUser" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">create account</button>
+          <button type="submit" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">create account</button>
         </div>
       </form>
 
@@ -41,12 +41,33 @@
   <script lang="ts">
   import { ref } from "vue";
   import { useRouter } from "vue-router";
+  import axios from 'axios'
 
   const router = useRouter();
 
-//   const toLogin = () => {
-//   router.push('/login')
-// }
-  </script>
-  <style lang=""></style>
+  export default {
+
+	data() {
+		return {
+			email: '',
+			password: ''
+		}
+	},
+	methods: {
+		async handleSubmit() {
+      try {
+        const response = await axios.post('/api/login', {
+          email: this.email,
+          password: this.password
+        })
+        console.log(response.data)
+      } catch (error) {
+        console.error(error)
+		}
+  		}
+	}
+}
+
+</script>
+<style lang=""></style>
   

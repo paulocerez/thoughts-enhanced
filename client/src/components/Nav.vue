@@ -64,7 +64,7 @@
 	{ name: 'leave a thought', link: '/thought', current: false, existing: true },
 	{ name: 'history', link: '/history', current: false, existing: true },
 	{ name: 'friends area', link: '/friendsarea', current: false, existing: false },
-	{ name: 'about us', link: '/about', current: false, existing: false },
+	{ name: 'about us', link: '/aboutus', current: false, existing: false },
 	{ name: 'your profile', link: '/profile', current: false, existing: true }
   ]
 </script>

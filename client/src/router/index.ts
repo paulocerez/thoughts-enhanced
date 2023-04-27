@@ -29,10 +29,24 @@ const router = createRouter({
 			}
 		},
 		{
+			path: "/friendsarea",
+			component: () => import("../views/FriendsArea.vue"),
+			meta: {
+				title: 'Friends area'
+			}
+		},
+		{
 			path: "/overview",
 			component: () => import("../views/ThoughtOverview.vue"),
 			meta: {
 				title: 'Overview'
+			}
+		},
+		{
+			path: "/aboutus",
+			component: () => import("../views/AboutUs.vue"),
+			meta: {
+				title: 'About us'
 			}
 		},
 		{

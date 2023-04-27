@@ -6,7 +6,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form @submit.prevent="handleSubmit()" class="space-y-6">
         <div>
           <label for="email" class="block text-left text-sm font-medium leading-6 text-white-900">email address</label>
           <div class="mt-2">
@@ -42,11 +42,28 @@
   <script lang="ts">
   import { ref } from "vue";
   import { useRouter } from "vue-router";
+  import axios from 'axios'
 
   const router = useRouter();
 
-  const toSignup = () => {
-  router.push('/signup')
+  export default {
+
+	data() {
+		return {
+			email: '',
+			password: ''
+		}
+	},
+	methods: {
+		async handleSubmit() {
+			const response = await axios.post('/api/signup', {
+				email: this.email,
+				password: this.password
+			})
+				console.log(response.data)
+
+			}
+		}
 }
 
   </script>
