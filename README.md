@@ -38,20 +38,15 @@
 ---
 
 ## About
-
-> **[?]**
-> Provide general information about your project here.
-> What problem does it (intend to) solve?
-> What is the purpose of your project?
-> Why did you undertake it?
-> You don't have to answer all the questions -- just the ones relevant to your project.
-
+Thoughts is a web application that captures any thoughts that cross your mind your mind. It's simple to use, minimalistic and includes some humor. ;) 
 
 
 ### Built With
 
-> **[?]**
-> Please provide the technologies that are used in the project.
+
+### Software Architecture
+<img src="./client/dist/assets/thoughts_architecture.jpg" alt="Software Architecture" width="411" height="309">
+
 
 ## Getting Started
 
@@ -65,13 +60,10 @@
 > **[?]**
 > Describe how to install and get started with the project.
 
-## Usage
-
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
-
 ## Roadmap
+- User Authentication with Login/Signup (currently didn't implement this out of time issues)
+- "Under construction" Sections to be done
+- Share thoughts with friends
 
 See the [open issues](https://github.com/paulocerez/thoughts-enhanced/issues) for a list of proposed features (and known issues).
 
