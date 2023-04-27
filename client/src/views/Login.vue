@@ -1,40 +1,71 @@
-<script lang="ts">
-export default {
+<template lang="">
+	<div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-green">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img class="mx-auto h-20 w-auto" src="../assets/thoughts_logo.png" alt="Your Company" />
+      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white-900">login as usual ;)</h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form @submit.prevent="handleSubmit()" class="space-y-6">
+        <div>
+          <label for="email" class="block text-left text-sm font-medium leading-6 text-white-900">email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" type="email" autocomplete="email" required="" class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between">
+			  <label for="password" class="block text-left text-sm font-medium leading-6 text-white-900">password</label>
+			  <div class="text-sm">
+              <a href="#" class="font-semibold text-sky-600 hover:text-sky-400">forgot password? :(</a>
+            </div>
+          </div>
+          <div class="mt-2">
+            <input id="password" name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">login</button>
+        </div>
+      </form>
+
+      <p class="mt-10 text-center text-sm text-gray-500">
+        Not a member yet?
+        {{ ' ' }}
+        <router-link to="/signup" class="font-semibold leading-6 text-sky-600 hover:text-sky-400">Let's get you started ;)</router-link>
+      </p>
+    </div>
+  </div>
+  </template>
+  <script lang="ts">
+  import { ref } from "vue";
+  import { useRouter } from "vue-router";
+  import axios from 'axios'
+
+  const router = useRouter();
+
+  export default {
+
 	data() {
 		return {
-			color: "red",
+			email: '',
+			password: ''
 		}
 	},
 	methods: {
-		sendLogin() {
-			this.color = "blue"
+		async handleSubmit() {
+			const response = await axios.post('/api/signup', {
+				email: this.email,
+				password: this.password
+			})
+				console.log(response.data)
+
+			}
 		}
-	}
 }
 
-</script>
-
-<template>
-	<h1 v-if="color === 'red'">"The page's color is {{ color }}</h1>
-	<h1 v-else>The page's color is {{ color }}</h1>
-	<p>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        placeholder="Email address"
-      />
-    </p>
-    <p>
-      <input
-        type="password"
-        name="password"
-        id=""
-        placeholder="Password"
-      />
-    </p>
-</template>
-
-<style>
-
-</style>
+  </script>
+  <style lang=""></style>
+  

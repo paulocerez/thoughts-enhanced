@@ -1,9 +1,6 @@
 FROM node:18
 
-WORKDIR /backend
-
-RUN npm i -g nodemon
-
+WORKDIR /server
 COPY package*.json ./
 RUN npm install
 COPY . ./

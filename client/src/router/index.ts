@@ -3,15 +3,15 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
 	// method to create a router instance
-	// creates a history object that uses the HTML5 history API to manipulate the browser's URL without triggering a page refresh -> switching between routes
-	history: createWebHistory(process.env.BASE_URL),
-	// specifying the "lazyload" routes
+	// creates a history object that uses the HTML5 history API to manipulate the browser's URL without triggering a page refresh
+	history: createWebHistory(),
+	// specifying the routes
 	routes: [
 		{
 			path: "/",
-			component: () => import("../views/ThoughtsOverview.vue"),
+			component: () => import("../views/Sample.vue"),
 			meta: {
-				title: 'Overview'
+				title: 'Thoughts'
 			}
 		},
 		{
@@ -22,10 +22,31 @@ const router = createRouter({
 			}
 		},
 		{
-			path: "/signup",
-			component: () => import("../views/Signup.vue"),
+			path: "/history",
+			component: () => import("../views/ThoughtHistory.vue"),
 			meta: {
-				title: 'Signup'
+				title: 'History'
+			}
+		},
+		{
+			path: "/friendsarea",
+			component: () => import("../views/FriendsArea.vue"),
+			meta: {
+				title: 'Friends area'
+			}
+		},
+		{
+			path: "/overview",
+			component: () => import("../views/ThoughtOverview.vue"),
+			meta: {
+				title: 'Overview'
+			}
+		},
+		{
+			path: "/aboutus",
+			component: () => import("../views/AboutUs.vue"),
+			meta: {
+				title: 'About us'
 			}
 		},
 		{
@@ -33,6 +54,13 @@ const router = createRouter({
 			component: () => import("../views/Login.vue"),
 			meta: {
 				title: 'Login'
+			}
+		},
+		{
+			path: "/signup",
+			component: () => import("../views/Signup.vue"),
+			meta: {
+				title: 'Signup'
 			}
 		},
 		{

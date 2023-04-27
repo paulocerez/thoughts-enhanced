@@ -1,43 +1,30 @@
 <script lang="ts">
-import './style.css'
-import Navbar from './components/Navbar.vue'
+import './style.css';
+import Nav from './components/Nav.vue';
+
+// const signOut = async () => {
+//   router.push('/');
+// }
 
 export default {
-	data () {
-		return {
-
-		}
-	},
-	components: { Navbar },
-	// computed: {
-	// 	authed () {
-			
-	// 	}
-	// }
+//   data () {
+//     return {
+//       user: null
+//     }
+//   },
+  components: { Nav },
 }
+
 
 </script>
 
 <template>
-  	<Navbar/>
-  	<router-view/>
+	<Nav/>
+	<div class="bg-transparent w-full h-full py-16 px-32">
+      <router-view/>
+    </div>
 </template>
 
 <style scoped>
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-h1 {
-	color: black;
-}
 </style>
-
