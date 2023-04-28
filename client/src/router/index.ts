@@ -16,9 +16,9 @@ const router = createRouter({
 		},
 		{
 			path: "/thought",
-			component: () => import("../views/ThoughtPage.vue"),
+			component: () => import("../views/CreateThought.vue"),
 			meta: {
-				title: 'Thought'
+				title: 'Create Thought'
 			}
 		},
 		{

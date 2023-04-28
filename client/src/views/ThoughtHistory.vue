@@ -4,7 +4,7 @@
 		<div v-if="loading" class="text-center">Loading...</div>
 		<div v-else>
 			<post-item v-for="post in posts" :key="post.id" :post="post" @delete-post="deletePost"
-				@edit="editPost"></post-item>
+				@edit-post="editPost"></post-item>
 		</div>
 	</div>
 </template>
@@ -23,7 +23,7 @@ export default {
 	},
 	data() {
 		return {
-			posts: [],
+			posts: [] as { id: number; title: string; thought: string | null }[],
 			loading: true,
 		}
 	},
