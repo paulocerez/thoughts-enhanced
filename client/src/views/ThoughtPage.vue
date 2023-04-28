@@ -37,47 +37,40 @@ import axios from 'axios'
 const router = useRouter();
 
 export default {
-
 	data() {
 		return {
-			navigationItems: [
-				{ name: 'leave a thought', link: '/thought', current: true },
-				{ name: 'history', link: '/history', current: false },
-				{ name: 'friends area', link: '/friendsarea', current: false },
-				{ name: 'about us', link: '/about', current: false },
-				{ name: 'your profile', link: '/profile', current: false }
-			],
-
-
-		}
+			title: '',
+			thought: '',
+		};
 	},
 	methods: {
-		async post() {
+		async submitForm() {
 			try {
-				const thought = await axios.post('/api/thought', {
-					// title: this.title,
-					// content: this.thought
-				})
-
+				const response = await fetch('/api/posts', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						title: this.title,
+						thought: this.thought,
+					}),
+				});
+				if (response.ok) {
+					// Reset form inputs
+					this.title = '';
+					this.thought = '';
+					// Navigate to the page where the new post is displayed
+					router.push('/history');
+				} else {
+					console.error('Failed to store the thought');
+				}
 			} catch (error) {
-				console.error(error)
+				console.error(error);
 			}
-
-		}
-	}
-}
+		},
+	},
+};
 
 </script>
 <style lang=""></style>
-  
-async handleSubmit() {
-	try {
-	  const response = await axios.post('/api/login', {
-		email: this.email,
-		password: this.password
-	  })
-	  console.log(response.data)
-	} catch (error) {
-	  console.error(error)
-	  }
-		}

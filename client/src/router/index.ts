@@ -22,6 +22,13 @@ const router = createRouter({
 			}
 		},
 		{
+			path: "/edit/:id",
+			component: () => import("../views/EditThought.vue"),
+			meta: {
+				title: 'Edit Thought'
+			}
+		},
+		{
 			path: "/history",
 			component: () => import("../views/ThoughtHistory.vue"),
 			meta: {

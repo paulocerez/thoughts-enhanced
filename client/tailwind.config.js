@@ -12,11 +12,17 @@ export default {
 			sans: ['Inter var', ...defaultTheme.fontFamily.sans],
 		}
 	},
-	// screens: {
-	// 	'sm': {'max': '640px'},
-	// 	'md': {'min': '641px', 'max': '740px'},
-	// 	'lg': {'min': '741px'},
-	// }
+	screens: {
+		'sm': '640px',
+  
+		'md': '768px',
+  
+		'lg': '1024px',
+  
+		'xl': '1280px',
+  
+		'2xl': '1536px',
+	  }
   },
   plugins: [],
 }
