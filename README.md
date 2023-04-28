@@ -42,16 +42,16 @@ Thoughts is a web application that captures any thoughts that cross your mind yo
 
 
 ### Built With
-Express.js: Node.js framework for building web apps and APIs
-Vue.js: JS framework for building user interfaces and single-page apps
-Vite: build tool for bundling and optimizing Vue.js projects
-Docker: platform for building, packaging, and deploying apps in containers to ensure consistent environments
-Tailwind: CSS framework for styling web apps and websites
-Prisma: ORM for simplifying database access and management in web apps
-Postgres: relational database management system for storing and managing data in web apps
-TypeScript: superset of JS that adds static typing and other features for easier and more reliable development
-Git/GitHub: version control system and web-based platform for tracking changes to code and collaborating with other developers
-Vue Router: routing library for adding client-side routing to Vue.js apps for easy navigation between views and components.
+- Express.js: Node.js framework for building web apps and APIs
+- Vue.js: JS framework for building user interfaces and single-page apps
+- Vite: build tool for bundling and optimizing Vue.js projects
+- Docker: platform for building, packaging, and deploying apps in containers to ensure consistent environments
+- Tailwind: CSS framework for styling web apps and websites
+- Prisma: ORM for simplifying database access and management in web apps
+- Postgres: relational database management system for storing and managing data in web apps
+- TypeScript: superset of JS that adds static typing and other features for easier and more reliable development
+- Git/GitHub: version control system and web-based platform for tracking changes to code and collaborating with other developers
+- Vue Router: routing library for adding client-side routing to Vue.js apps for easy navigation between views and components.
 
 
 
@@ -77,6 +77,9 @@ git clone https://github.com/paulocerez/thoughts-enhanced.git
 # install dependencies for the backend
 cd server
 npm i
+
+# apply db migrations to db
+npx prisma migrate dev
 
 # run the backend development server
 npm run start
