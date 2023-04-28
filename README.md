@@ -56,7 +56,7 @@ Thoughts is a web application that captures any thoughts that cross your mind yo
 
 
 ### Software Architecture
-<img src="./client/dist/assets/thoughts_architecture.jpg" alt="Software Architecture" width="411" height="309">
+<img src="./client/dist/assets/thoughts_architecture.jpg" alt="Software Architecture">
 
 
 ## Getting Started
