@@ -24,15 +24,54 @@ app.get('/', (req, res) => {
   res.send('Hello, my g!');
 });
 
-// app.post('/user', async (req, res) => {
-//     const user = await prisma.user.create({
-//         data: {
-//             email: "leandro.ramirez@gmail.com",
-//             name: "leocerez"
-//         }
-//     });
-//     console.log(user)
-// });
+// CRUD
+
+// post a post
+app.post('/api/posts', async (req, res) => {
+	try {
+	  const { title, thought } = req.body;
+	  const post = await prisma.post.create({
+		data: {
+		  title,
+		  thought,
+		},
+	  });
+	  res.status(201).json(post);
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({ error: 'Unable to create post' });
+	}
+  });
+
+// delete a post
+app.delete("/api/posts/:id", async (req, res) => {
+	const { id } = req.params;
+	await prisma.post.delete({ where: { id: Number(id) } });
+	res.sendStatus(204);
+  });
+
+  // Update a post
+app.put('/posts/:postId', async (req, res) => {
+	const { title, thought } = req.body;
+	const { postId } = req.params;
+  
+	try {
+	  // Update the post in the database
+	  const updatedPost = await prisma.post.update({
+		where: { id: parseInt(postId) },
+		data: { title, thought },
+	  });
+  
+	  // Send the updated post as a response
+	  res.status(200).json(updatedPost);
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({ message: 'Error updating post' });
+	}
+  });
+  
+
+
 
 // Auth routes
 
