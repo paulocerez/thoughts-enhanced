@@ -45,6 +45,7 @@ app.post('/api/posts', async (req, res) => {
 
 // delete a post
 app.delete("/api/posts/:id", async (req, res) => {
+	// id as the unique identifier in the database for the post to be deleted
 	const { id } = req.params;
 	await prisma.post.delete({ where: { id: Number(id) } });
 	res.sendStatus(204);
@@ -58,6 +59,7 @@ app.put('/posts/:postId', async (req, res) => {
 	try {
 	  // Update the post in the database
 	  const updatedPost = await prisma.post.update({
+		// postId as the unique identifier of the updated post (URL parameter -> matches the parameter name in the route definition)
 		where: { id: parseInt(postId) },
 		data: { title, thought },
 	  });
