@@ -13,6 +13,12 @@
             	<input id="title" name="title" type="text" v-model="title" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           	</div>
         </div>
+        <div>
+          	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">thought-category</label>
+          	<div class="mt-2">
+            	<input id="category" name="category" type="text" v-model="category" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+          	</div>
+        </div>
 
         <div>
 			<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">thought</label>
@@ -30,7 +36,7 @@
   </div>
   </template>
 <script lang="ts">
-import { ref } from "vue";
+// import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios'
 
@@ -39,26 +45,25 @@ const router = useRouter();
 export default {
 	data() {
 		return {
+			// initial component state -> empty properties
 			title: '',
+			category: '',
 			thought: '',
 		};
 	},
 	methods: {
 		async submitForm() {
 			try {
-				const response = await fetch('/api/posts', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						title: this.title,
-						thought: this.thought,
-					}),
+				const response = await axios.post('/api/posts', {
+					title: this.title,
+					category: this.category,
+					thought: this.thought,
 				});
-				if (response.ok) {
+				// status indicates that new ressources have been created on the server based on a POST request
+				if (response.status === 201) {
 					// Reset form inputs
 					this.title = '';
+					this.category = '';
 					this.thought = '';
 					// Navigate to the page where the new post is displayed
 					router.push('/history');
@@ -73,4 +78,4 @@ export default {
 };
 
 </script>
-<style lang=""></style>
+<style></style>
