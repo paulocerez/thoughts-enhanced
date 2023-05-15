@@ -39,6 +39,7 @@
 // import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios'
+import backendUrl from '../../config'
 
 const router = useRouter();
 
@@ -54,7 +55,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post('/api/posts', {
+				const response = await axios.post('${backendUrl}/api/posts', {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,
@@ -68,7 +69,7 @@ export default {
 					// Navigate to the page where the new post is displayed
 					router.push('/history');
 				} else {
-					console.error('Failed to store the thought');
+					console.error('Failed to store the thought :(');
 				}
 			} catch (error) {
 				console.error(error);
