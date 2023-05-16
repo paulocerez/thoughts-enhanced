@@ -1,6 +1,7 @@
 <template>
 	<div class="flex flex-col items-start justify-start border-b border-gray-200 py-4 px-6">
 		<h3 class="font-bold text-lg mb-2">{{ post.title }}</h3>
+		<h5 class="font-bold text-lg mb-2">{{ post.category }}</h5>
 		<p class="text-gray-700 text-base">{{ post.thought }}</p>
 		<div class="mt-4">
 			<button @click="deletePost" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">
