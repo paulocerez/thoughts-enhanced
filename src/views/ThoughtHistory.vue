@@ -14,6 +14,7 @@ import PostItem from '../components/PostItem.vue'
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios'
+import backendUrl from '../../config'
 
 const router = useRouter();
 
@@ -23,7 +24,7 @@ export default {
 	},
 	data() {
 		return {
-			posts: [] as { id: number; title: string; thought: string | null }[],
+			posts: [] as { id: number; title: string; category: string; thought: string }[],
 			loading: true,
 		}
 	},
@@ -33,7 +34,7 @@ export default {
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get('/api/posts')
+				const response = await axios.get(`${backendUrl}/api/posts`)
 				this.posts = response.data
 				this.loading = false
 			} catch (error) {
@@ -42,7 +43,7 @@ export default {
 		},
 		async deletePost(postId: number) {
 			try {
-				await axios.delete(`/api/posts/${postId}`)
+				await axios.delete(`${backendUrl}/api/posts/${postId}`)
 				this.posts = this.posts.filter(post => post.id !== postId)
 			} catch (error) {
 				console.error(error)

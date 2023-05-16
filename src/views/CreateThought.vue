@@ -1,20 +1,20 @@
 <template lang="">
 	<div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-green">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-10 w-auto" src="../assets/eyes.png" alt="Your Company" />
+      <img class="mx-auto h-10 w-auto" src="../assets/eyes.png" alt="Looking for your thoughts" />
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white-900">tell me something I don't know...</h2>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form @submit.prevent="submitForm" class="space-y-6">
         <div>
-          	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">thought-title</label>
+          	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">title</label>
           	<div class="mt-2">
             	<input id="title" name="title" type="text" v-model="title" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           	</div>
         </div>
         <div>
-          	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">thought-category</label>
+          	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">category</label>
           	<div class="mt-2">
             	<input id="category" name="category" type="text" v-model="category" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           	</div>
@@ -55,7 +55,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post('${backendUrl}/api/posts', {
+				const response = await axios.post(`${backendUrl}/api/posts`, {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,
