@@ -29,6 +29,7 @@
 import axios from 'axios'
 import { RouteLocationNormalizedLoaded, useRouter } from 'vue-router';
 import { ref } from "vue";
+import backendUrl from '../../config';
 
 const router = useRouter();
 
@@ -46,7 +47,7 @@ export default {
 	methods: {
 		async fetchPost() {
 			const postId = this.$route.params.postId
-			const response = await axios.get(`/api/posts/${postId}`)
+			const response = await axios.get(`${backendUrl}/api/posts/${postId}`)
 			this.postId = postId as string
 			this.title = response.data.title
 			this.thought = response.data.thought
