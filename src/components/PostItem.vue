@@ -18,6 +18,11 @@
   
 <script lang="ts">
 export default {
+	data() {
+		return {
+
+		}
+	},
 	props: {
 		post: {
 			type: Object,
@@ -28,6 +33,6 @@ export default {
 		deletePost() {
 			this.$emit('delete-post', this.post.id)
 		},
-	},
+	}
 }
 </script>

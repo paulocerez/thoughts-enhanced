@@ -55,7 +55,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post(`${backendUrl}/api/posts`, {
+				const response = await axios.post('/api/posts', {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,

@@ -7,24 +7,22 @@ import Nav from './components/Nav.vue';
 // }
 
 export default {
-//   data () {
-//     return {
-//       user: null
-//     }
-//   },
-  components: { Nav },
+	//   data () {
+	//     return {
+	//       user: null
+	//     }
+	//   },
+	components: { Nav },
 }
 
 
 </script>
 
 <template>
-	<Nav/>
+	<Nav />
 	<div class="bg-transparent w-full h-full py-16 px-32">
-      <router-view/>
-    </div>
+		<router-view />
+	</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

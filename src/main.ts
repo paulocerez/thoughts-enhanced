@@ -1,6 +1,15 @@
 // new application instance -> build step, createApp API
 import { createApp } from 'vue'
 import './style.css'
+import axios from 'axios';
+import config from '../config'
+// set the axios baseURL
+
+// axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = config.backendUrl;
+// console.log(axios.defaults.baseURL)
+
+
 // import the root component App from a single-file component -> contains other components as its children
 import App from './App.vue'
 const app = createApp(App)
