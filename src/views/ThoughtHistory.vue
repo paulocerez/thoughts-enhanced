@@ -1,16 +1,18 @@
 <template>
 	<div class="mt-0">
 		<h2 class="text-2xl -mt-64 font-bold mb-4">My Entries</h2>
-		<div v-if="loading" class="text-center">Loading...</div>
-		<div v-else>
-			<!-- create a post element for every post in the post database table -->
-			<div v-for="post in posts" :key="post.id">
+		<!-- <div v-if="loading" class="text-center">Loading...</div>
+		<div v-else> -->
+		<!-- create a post element for every post in the post database table -->
+		<li v-for="post in posts" :key="post.id">
+			<div>
 				<h3 class="font-bold text-lg mb-2">{{ post.title }}</h3>
 				<h5 class="font-bold text-lg mb-2">{{ post.category }}</h5>
 				<p class="text-gray-700 text-base">{{ post.thought }}</p>
 			</div>
-		</div>
+		</li>
 	</div>
+	<!-- </div> -->
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
