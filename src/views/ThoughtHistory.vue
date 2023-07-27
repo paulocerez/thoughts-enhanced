@@ -36,7 +36,7 @@ export default defineComponent({
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get<{ id: number; title: string; category: string; thought: string }[]>(`${backendUrl}/api/posts/all`);
+				const response = await axios.get<{ id: number; title: string; category: string; thought: string }[]>('http://localhost:3000/api/posts/all');
 				this.posts = response.data;
 				this.loading = false;
 			} catch (error) {

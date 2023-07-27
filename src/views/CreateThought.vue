@@ -28,7 +28,7 @@
         </div>
 
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">post and smile :)</button>
+          <button @click="submitForm" type="button" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">post and smile :)</button>
         </div>
       </form>
 
@@ -38,8 +38,8 @@
 <script lang="ts">
 // import { ref } from "vue";
 import { useRouter } from "vue-router";
-import axios from 'axios'
-import backendUrl from '../../config'
+import axios from 'axios';
+import backendUrl from '../../config';
 
 const router = useRouter();
 
@@ -55,7 +55,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post('/api/posts', {
+				const response = await axios.post('http://localhost:3000/api/posts', {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,
@@ -67,7 +67,7 @@ export default {
 					this.category = '';
 					this.thought = '';
 					// Navigate to the page where the new post is displayed
-					router.push('/history');
+					this.$router.push('/history');
 				} else {
 					console.error('Failed to store the thought :(');
 				}

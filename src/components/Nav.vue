@@ -27,7 +27,7 @@
 							<!-- Navbar Elements with Routes -->
 							<div>
 								<router-link v-for="item in navigationItems" :key="item.name" :to="item.link"
-									:class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-sky-600 hover:text-white', 'rounded-md bg-black-900 px-6 py-3 text-sm font-medium']"
+									:class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:underline hover:text-white', 'rounded-md bg-black-900 px-6 py-3 text-sm font-medium']"
 									:aria-current="item.current ? 'page' : undefined">
 									{{ item.name }}
 								</router-link>
