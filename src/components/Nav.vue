@@ -1,9 +1,9 @@
 <template>
 	<!-- Main Wrapper -->
-	<div class="fixed w-full left-0 top-0 z-50 2xl:px-80 md:px-16">
+	<div class="fixed w-full left-0 top-0 z-50 2xl:px-80 md:px-4">
 		<Disclosure as="nav" class="black" v-slot="{ open }">
-			<div class="relative flex h-20 items-center sm:mx-4 sm:justify-between">
-				<div class="absolute inset-y-0 left-0 flex items-center">
+			<div class="h-20 flex items-center justify-between mx-4">
+				<div>
 
 					<!-- Mobile menu button-->
 					<DisclosureButton
@@ -17,7 +17,7 @@
 				<!-- Navbar elements excl. Profile-->
 
 				<div class="flex flex-shrink-0 items-center">
-					<img class="flex h-8 w-auto lg:hidden" src="../assets/thoughts_logo.png" alt="Thoughts" />
+					<img class="h-8 w-auto lg:hidden" src="../assets/thoughts_logo.png" alt="Thoughts" />
 					<img class="hidden h-12 w-auto lg:flex" src="../assets/thoughts_logo.png" alt="Thoughts" />
 				</div>
 				<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center sm:items-stretch sm:justify-evenly">
@@ -63,7 +63,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import Button from './SignInButton.vue'
-import Badge from './Badge.vue'
+
 
 const navigationItems = [
 	{ name: 'leave a thought', link: '/thought', current: false, existing: true },
@@ -73,3 +73,4 @@ const navigationItems = [
 	{ name: 'your profile', link: '/profile', current: false, existing: true }
 ]
 </script>
+<style></style>
