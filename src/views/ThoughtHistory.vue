@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div class="header m-24">
-			<h2 class="text-2xl font-bold p-2">Your Entries</h2>
-			<h3 class="text-l text-gray-300">Read through your personal collection.</h3>
+			<h3 class="font-bold p-2">Your Entries</h3>
+			<h4 class="text-gray-300">Read through your personal collection.</h4>
 		</div>
 		<div class="grid lg:grid-cols-2 gap-24 justify-center">
 			<div v-for="post in posts" :key="post.id"
