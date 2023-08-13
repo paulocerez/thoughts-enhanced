@@ -15,8 +15,16 @@
 				</div>
 
 				<div>
-					<img class="h-8 w-auto lg:hidden" src="../assets/thoughts_logo.png" alt="Thoughts" />
-					<img class="hidden h-12 w-auto lg:flex" src="../assets/thoughts_logo.png" alt="Thoughts" />
+					<div>
+						<router-link :to="'/'">
+							<img class="h-8 w-auto lg:hidden" src="../assets/thoughts_logo.png" alt="Thoughts" />
+						</router-link>
+					</div>
+					<div>
+						<router-link :to="'/'">
+							<img class="hidden h-12 w-auto lg:flex" src="../assets/thoughts_logo.png" alt="Thoughts" />
+						</router-link>
+					</div>
 				</div>
 				<div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center sm:items-stretch sm:justify-evenly">
 					<div class="hidden sm:ml-6 sm:block">
