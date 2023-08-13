@@ -4,7 +4,7 @@
 			<h2 class="text-2xl font-bold p-2">Your Entries</h2>
 			<h3 class="text-l text-gray-300">Read through your personal collection.</h3>
 		</div>
-		<div class="grid lg:grid-cols-2 md:grid-cols-1 gap-24 justify-center">
+		<div class="grid lg:grid-cols-2 gap-24 justify-center">
 			<div v-for="post in posts" :key="post.id"
 				class="bg-white card text-black rounded-md p-6 text-left w-80 h-60 overflow-auto">
 				<div class="buttons text-right rounded items-center">
