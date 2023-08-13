@@ -1,6 +1,6 @@
 <template>
 	<!-- Main Wrapper -->
-	<div class="fixed w-full left-0 top-0 z-50 2xl:px-80 md:px-4">
+	<div class="fixed w-full left-0 top-0 z-50 2xl:px-80 md:px-4 bg-black">
 		<Disclosure as="nav" class="black" v-slot="{ open }">
 			<div class="h-20 flex items-center justify-between mx-4">
 				<div>

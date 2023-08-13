@@ -43,13 +43,6 @@ const router = createRouter({
 			}
 		},
 		{
-			path: "/overview",
-			component: () => import("../views/ThoughtOverview.vue"),
-			meta: {
-				title: 'Overview'
-			}
-		},
-		{
 			path: "/aboutus",
 			component: () => import("../views/AboutUs.vue"),
 			meta: {

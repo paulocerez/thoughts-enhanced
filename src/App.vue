@@ -20,7 +20,7 @@ export default {
 
 <template>
 	<Nav />
-	<div class="bg-transparent w-full h-full py-16 px-32">
+	<div class="bg-transparent w-full h-full lg:py-16 lg:px-32">
 		<router-view />
 	</div>
 </template>
