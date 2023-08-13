@@ -4,7 +4,7 @@
 		<Disclosure as="nav" class="black" v-slot="{ open }">
 			<div class="h-20 flex items-center justify-between mx-4">
 				<!-- Mobile menu button-->
-				<div class="disclosure-wrapper">
+				<div class="disclosure-wrapper lg:hidden">
 
 					<DisclosureButton
 						class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white lg:hidden">
