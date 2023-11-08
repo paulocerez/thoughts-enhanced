@@ -38,10 +38,11 @@
 ---
 
 ## About
-Thoughts is a web application that captures any thoughts that cross your mind your mind. It's simple to use, minimalistic and includes some humor. ;) 
 
+Thoughts is a web application that captures any thoughts that cross your mind your mind. It's simple to use, minimalistic and includes some humor. ;)
 
 ### Built With
+
 - Express.js: Node.js framework for building web apps and APIs
 - Vue.js: JS framework for building user interfaces and single-page apps
 - Vite: build tool for bundling and optimizing Vue.js projects
@@ -53,16 +54,15 @@ Thoughts is a web application that captures any thoughts that cross your mind yo
 - Git/GitHub: version control system and web-based platform for tracking changes to code and collaborating with other developers
 - Vue Router: routing library for adding client-side routing to Vue.js apps for easy navigation between views and components.
 
-
-
 ### Software Architecture
+
 <img src="./dist/assets/thoughts_architecture.jpg" alt="Software Architecture" width="" height="">
 <img src="./public/thoughts_logo.png" alt="Logo" width="100" height="100">
-
 
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (>= v14)
 - npm (>= v6)
 - git
@@ -94,22 +94,8 @@ npm run dev
 ```
 
 ## Roadmap
+
 - User Authentication with Login/Signup (currently didn't implement this out of time issues)
 - Responsiveness (same issue)
 - "Under construction" Sections to be done
 - Share thoughts with friends
-
-See the [open issues](https://github.com/paulocerez/thoughts-enhanced/issues) for a list of proposed features (and known issues).
-
-- [Top Feature Requests](https://github.com/paulocerez/thoughts-enhanced/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/paulocerez/thoughts-enhanced/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/paulocerez/thoughts-enhanced/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-
-## Authors & contributors
-
-The original setup of this repository is by [Paulo Cedeños](https://github.com/paulocerez).
-
-For a full list of all authors and contributors, see [the contributors page](https://github.com/paulocerez/thoughts-enhanced/contributors).
-
-
-
