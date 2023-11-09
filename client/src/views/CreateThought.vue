@@ -34,7 +34,7 @@
 
     </div>
   </div>
-  </template>
+</template>
 <script lang="ts">
 // import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -55,7 +55,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post('http://localhost:3000/api/posts', {
+				const response = await axios.post('http://localhost:8000/api/posts', {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,
@@ -79,4 +79,29 @@ export default {
 };
 
 </script>
-<style></style>
+<style>
+.input-fields {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	border-radius: 0.375rem;
+	background-color: #4299e1;
+	padding: 0.75rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: #fff;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+	transition: background-color 0.2s ease-in-out;
+	outline: none;
+	outline-offset: 2px;
+}
+
+.input-fields:hover {
+	background-color: #3182ce;
+}
+
+.input-fields:focus-visible {
+	outline: 2px solid #4299e1;
+}
+</style>

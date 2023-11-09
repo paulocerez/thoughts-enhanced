@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<div class="header m-24">
-			<h3 class="font-bold p-2">Your Entries</h3>
-			<h4 class="text-gray-300">Read through your personal collection.</h4>
+		<div class="header flex flex-col">
+			<h1 class="font-bold p-2 text-4xl">Your Entries</h1>
+			<h2 class="text-gray-300 text-xl">Read through your personal collection.</h2>
 		</div>
-		<div class="grid lg:grid-cols-2 gap-24 justify-center">
+		<div class="flex flex-col justify-center">
 			<div v-for="post in posts" :key="post.id"
 				class="bg-white card text-black rounded-md p-6 text-left w-80 h-60 overflow-auto">
 				<div class="buttons text-right rounded items-center">
@@ -30,6 +30,9 @@
 						{{ post.thought }}
 					</div>
 				</div>
+				<div class="text-white" v-if="posts.length === 0">You have no thoughts currently. Go to the Thoughts page to
+					add them.
+				</div>
 			</div>
 		</div>
 	</div>
@@ -39,6 +42,7 @@
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios';
+import backendUrl from '../../config';
 const router = useRouter();
 
 export default defineComponent({
@@ -54,8 +58,8 @@ export default defineComponent({
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get<{ id: number; title: string; category: string; thought: string }[]>('http://localhost:3000/api/posts/all');
-				this.posts = response.data;
+				const response = await axios.get<{ id: number; title: string; category: string; thought: string }[]>('http://localhost:8000/api/posts/all');
+				this.posts = response.data
 			} catch (error) {
 				console.error(error);
 			}

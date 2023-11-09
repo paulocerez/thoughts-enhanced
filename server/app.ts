@@ -7,6 +7,7 @@ const app = express();
 import dotenv from "dotenv";
 
 import bodyParser from "body-parser";
+
 import cors from "cors";
 app.use(cors({ origin: true }));
 
@@ -17,6 +18,13 @@ const prisma = new PrismaClient();
 app.use(bodyParser.json());
 
 // middleware for cross-origin resource sharing -> allows restricted resources on a web page to be requested from another domain outside the original domain
+
+interface PostBody {
+  title: string;
+  category: string;
+  thought: string;
+  //   user: string;
+}
 
 // Routes
 
@@ -43,9 +51,10 @@ app.get("/api/posts/:id", (req, res) => {
 app.post("/api/posts", async (req, res) => {
   try {
     // destructuring the request body -> extract properties
-    const { title, category, thought } = req.body;
+    const { title, category, thought }: PostBody = req.body;
     const post = await prisma.post.create({
       data: {
+        // userId: currentUser.id,
         title,
         category,
         thought,
