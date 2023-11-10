@@ -2,16 +2,7 @@
 import './style.css';
 import Nav from './components/Nav.vue';
 
-// const signOut = async () => {
-//   router.push('/');
-// }
-
 export default {
-	//   data () {
-	//     return {
-	//       user: null
-	//     }
-	//   },
 	components: { Nav },
 }
 
@@ -24,5 +15,3 @@ export default {
 		<router-view />
 	</div>
 </template>
-
-<style scoped></style>
