@@ -55,7 +55,7 @@
 			<DisclosurePanel>
 
 				<div class="space-y-1 px-2 pb-3 pt-2">
-					<DisclosureButton class="md:hidden">
+					<DisclosureButton class="lg:hidden">
 						<div>
 
 							<router-link v-for="item in navigationItems" :key="item.name" as="router-link" :to="item.link"
@@ -63,7 +63,7 @@
 								:aria-current="item.current ? 'page' : undefined">{{ item.name }}
 							</router-link>
 							<a href="https://github.com/paulocerez/thoughts-enhanced.git"
-								class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-l font-medium']">view
+								class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-l font-medium">view
 								on GitHub</a>
 						</div>
 					</DisclosureButton>
