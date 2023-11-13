@@ -1,34 +1,6 @@
-// Imports
+const thoughtsRouter = require("express").Router();
 
-import express from "express";
-
-const app = express();
-import dotenv from "dotenv";
-import bodyParser from "body-parser";
-import cors from "cors";
-app.use(cors({ origin: true }));
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
-
-// middleware -> Parse incoming request bodies in a middleware before your handlers, available under the req.body property
-app.use(bodyParser.json());
-
-// middleware for cross-origin resource sharing -> allows restricted resources on a web page to be requested from another domain outside the original domain
-
-interface PostBody {
-  title: string;
-  category: string;
-  thought: string;
-  //   user: string;
-}
-
-// Routes
-
-app.get("/", (req, res) => {
-  res.send("Hello, this server is hosted successfully :)");
-});
-
-app.get("/api/posts/all", async (req, res) => {
+thoughtsRouter.get("/api/posts/all", async (req, res) => {
   try {
     const thoughts = await prisma.post.findMany();
     res.json(thoughts);
@@ -90,22 +62,4 @@ app.put("/api/posts/:postId", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Error updating post" });
   }
-});
-
-// Start the server
-
-async function main() {
-  // Connect to the database
-  await prisma.$connect();
-
-  // Start the server
-  //   check for PORT env variable -> global object in Node.js providing access to environment varibales (process.env)
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-main().catch((error) => {
-  console.error("Error connecting to database:", error);
 });
