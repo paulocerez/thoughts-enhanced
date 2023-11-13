@@ -2,16 +2,21 @@
 
 import express from "express";
 
-const app = express();
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
-app.use(cors({ origin: true }));
 import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { Token } from "typescript";
 
+dotenv.config();
+
+const app = express();
+app.use(cors());
 // middleware -> Parse incoming request bodies in a middleware before your handlers, available under the req.body property
 app.use(bodyParser.json());
+const prisma = new PrismaClient();
 
 // middleware for cross-origin resource sharing -> allows restricted resources on a web page to be requested from another domain outside the original domain
 
@@ -28,6 +33,55 @@ app.get("/", (req, res) => {
   res.send("Hello, this server is hosted successfully :)");
 });
 
+// User-related routes
+app.post("/api/signup", async (req, res) => {
+  const { username, password, email } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    const newUser = await prisma.user.create({
+      data: {
+        username,
+        email,
+        hashedPassword,
+      },
+    });
+    res.status(201).send({ userId: newUser.id });
+  } catch (error) {
+    res.status(500).send("Registration Error");
+  }
+});
+
+app.post("/api/login", async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await prisma.user.findUnique({ where: { username } });
+
+    console.log("User found:", user); // Check if user is found
+
+    // check if the provided password matches the hashedPassword stored in the database
+    if (user && (await bcrypt.compare(password, user.hashedPassword))) {
+      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, {
+        expiresIn: "24h",
+      });
+      res.json({ token });
+    } else {
+      console.log("Authentication failed for username:", username);
+      res.status(401).send("Authentication failed, invalid credentials");
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).send("Error logging in");
+  }
+});
+
+app.get("/api/users", async (req, res) => {
+  const users = await prisma.user.findMany();
+  console.log(users);
+});
+
+// Post-related routes
+
 app.get("/api/posts/all", async (req, res) => {
   try {
     const thoughts = await prisma.post.findMany();
@@ -41,8 +95,6 @@ app.get("/api/posts/all", async (req, res) => {
 app.get("/api/posts/:id", (req, res) => {
   const thoughtId = req.params.id;
 });
-
-// Post-related routes
 
 app.post("/api/posts", async (req, res) => {
   try {

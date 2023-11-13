@@ -6,23 +6,20 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form @submit.prevent="handleSubmit()" class="space-y-6">
+      <form @submit.prevent="login" class="space-y-6">
         <div>
-          <label for="email" class="block text-left text-sm font-medium leading-6 text-white-900">email address</label>
+          <label for="username" class="block text-left text-sm font-medium leading-6 text-white-900">username</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" required="" class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <input id="username" name="username" type="text" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
 
         <div>
           <div class="flex items-center justify-between">
 			  <label for="password" class="block text-left text-sm font-medium leading-6 text-white-900">password</label>
-			  <div class="text-sm">
-              <a href="#" class="font-semibold text-sky-600 hover:text-sky-400">forgot password? :(</a>
-            </div>
           </div>
           <div class="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
 
@@ -39,33 +36,61 @@
     </div>
   </div>
   </template>
-  <script lang="ts">
-  import { ref } from "vue";
-  import { useRouter } from "vue-router";
-  import axios from 'axios'
+<script lang="ts">
+import { useRouter } from "vue-router";
+import axios, { AxiosError } from 'axios'
 
-  const router = useRouter();
+const router = useRouter();
 
-  export default {
+export default {
 
 	data() {
 		return {
-			email: '',
+			username: '',
 			password: ''
 		}
 	},
 	methods: {
-		async handleSubmit() {
-			const response = await axios.post('/api/signup', {
-				email: this.email,
-				password: this.password
-			})
-				console.log(response.data)
-
+		async login() {
+			try {
+				const response = await axios.post('http://localhost:8000/api/login', {
+					username: this.username,
+					password: this.password
+				}, {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				);
+				localStorage.setItem('token', response.data.token)
+				this.$router.push('/history');
+			} catch (error: any) { // Using `any` here since Axios errors have a specific structure not fully covered by the `Error` type
+				if (axios.isAxiosError(error)) {
+					// Handling Axios errors specifically
+					const axiosError = error as AxiosError;
+					if (axiosError.response) {
+						// The request was made and the server responded with a status code
+						// that falls out of the range of 2xx
+						console.error("Login error response:", axiosError.response.data);
+						console.error("Status code:", axiosError.response.status);
+						console.error("Headers:", axiosError.response.headers);
+					} else if (axiosError.request) {
+						// The request was made but no response was received
+						console.error("Login error request:", axiosError.request);
+					} else {
+						// Something happened in setting up the request that triggered an error
+						console.error("Login error message:", axiosError.message);
+					}
+				} else {
+					// Non-Axios errors
+					console.error("Error during login:", error.message);
+				}
+				alert("Login failed... 😅");
 			}
 		}
+	}
 }
 
-  </script>
-  <style lang=""></style>
+</script>
+<style lang=""></style>
   

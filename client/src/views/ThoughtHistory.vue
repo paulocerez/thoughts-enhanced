@@ -95,10 +95,15 @@ export default defineComponent({
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get<{ id: number; title: string; category: string; thought: string; isEditing: boolean }[]>('http://localhost:8000/api/posts/all');
+				const response = await axios.get('http://localhost:8000/api/posts/all', {
+					headers: {
+						'Authorization': `Bearer ${localStorage.getItem('token')}`
+					}
+				});
 				this.posts = response.data;
 			} catch (error) {
 				console.error(error);
+				alert('Failed to fetch thoughts...')
 			}
 		},
 		async deletePost(postId: number) {

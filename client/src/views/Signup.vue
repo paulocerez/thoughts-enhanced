@@ -6,11 +6,11 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form @submit.prevent="handleSubmit" class="space-y-6">
+      <form @submit.prevent="signup" class="space-y-6">
         <div>
           <label for="username" class="block text-left text-sm font-medium leading-6 text-white-900">username</label>
           <div class="mt-2">
-            <input id="username" name="username" type="text" v-model="username" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <input id="username" name="username" type="text" v-model="username" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
         <div>
@@ -61,23 +61,20 @@ export default {
 		}
 	},
 	methods: {
-		async handleSubmit() {
+		async signup() {
 			try {
-				const response = await axios.post('/api/login', {
+				await axios.post('http://localhost:8000/api/signup', {
 					username: this.username,
 					email: this.email,
 					password: this.password
 				})
-				console.log(response.data)
+				this.$router.push('/login');
 			} catch (error) {
-				console.error(error)
+				alert('Signup failed... 😳');
 			}
 		}
 	}
 }
 
 </script>
-<style lang="">
-	
-</style>
   
