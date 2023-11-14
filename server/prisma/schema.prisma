@@ -13,9 +13,8 @@ model Post {
   createdAt DateTime @default(now()) @db.Timestamp(6)
   category  String   @db.VarChar(50)
   thought   String
-//   isEditing Boolean
-//   user    	User     @relation(fields: [userId], references: [id])
-//   userId  	Int
+  user    	User     @relation(fields: [userId], references: [id])
+  userId  	Int
 
 }
 model User {
@@ -23,5 +22,5 @@ model User {
   username String   @unique @db.VarChar(255)
   email    String   @unique @db.VarChar(255)
   hashedPassword String   @db.VarChar(255)
-// posts Post[]
+  posts    Post[]
 }

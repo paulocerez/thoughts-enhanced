@@ -36,6 +36,8 @@ app.get("/", (req, res) => {
 // User-related routes
 app.post("/api/signup", async (req, res) => {
   const { username, password, email } = req.body;
+  console.log(username, password, email);
+
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
@@ -54,6 +56,7 @@ app.post("/api/signup", async (req, res) => {
 
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
+
   try {
     const user = await prisma.user.findUnique({ where: { username } });
 
