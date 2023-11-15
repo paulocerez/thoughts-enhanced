@@ -10,20 +10,20 @@
         <div>
           	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">title</label>
           	<div class="mt-2">
-            	<input id="title" name="title" type="text" v-model="title" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            	<input id="title" name="title" type="text" v-model="title" required class="thoughtsInputs" />
           	</div>
         </div>
         <div>
           	<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">category</label>
           	<div class="mt-2">
-            	<input id="category" name="category" type="text" v-model="category" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            	<input id="category" name="category" type="text" v-model="category" required class="thoughtsInputs" />
           	</div>
         </div>
 
         <div>
 			<label for="thought" class="block text-left text-sm font-medium leading-6 text-white-900">thought</label>
           	<div class="mt-2">
-            	<textarea id="thought" name="thought" type="text" rows="5" v-model="thought" required class="block w-full rounded-md bg-transparent border-0 py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            	<textarea id="thought" name="thought" type="text" rows="5" v-model="thought" required class="thoughtsInputs" />
           	</div>
         </div>
 

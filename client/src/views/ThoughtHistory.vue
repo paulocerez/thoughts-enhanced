@@ -71,6 +71,7 @@ import DeleteIcon from "../components/ui/DeleteIcon.vue"
 
 interface Post {
 	id: number;
+	userId: number;
 	title: string;
 	category: string;
 	thought: string;
@@ -86,7 +87,7 @@ export default defineComponent({
 	data() {
 		// reset to default values
 		return {
-			posts: [] as { id: number; title: string; category: string; thought: string, isEditing: boolean }[],
+			posts: [] as Post[],
 		};
 	},
 	mounted() {
@@ -95,7 +96,7 @@ export default defineComponent({
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get('http://localhost:8000/api/posts/all', {
+				const response = await axios.get<Post[]>('http://localhost:8000/api/posts/user', {
 					headers: {
 						'Authorization': `Bearer ${localStorage.getItem('token')}`
 					}

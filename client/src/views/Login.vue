@@ -10,7 +10,7 @@
         <div>
           <label for="username" class="block text-left text-sm font-medium leading-6 text-white-900">username</label>
           <div class="mt-2">
-            <input id="username" name="username" type="text" v-model="username" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <input id="username" name="username" type="text" v-model="username" required class="loginSignupInputs" />
           </div>
         </div>
 
@@ -19,12 +19,12 @@
 			  <label for="password" class="block text-left text-sm font-medium leading-6 text-white-900">password</label>
           </div>
           <div class="mt-2">
-            <input id="password" name="password" type="password" v-model="password" autocomplete="current-password" required class="block w-full rounded-md border-0 bg-transparent py-2 px-4 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <input id="password" name="password" type="password" v-model="password" autocomplete="current-password" required class="loginSignupInputs" />
           </div>
         </div>
 
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">login</button>
+          <button type="submit" class="loginSignupButton">login</button>
         </div>
       </form>
 

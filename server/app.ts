@@ -7,25 +7,14 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { Token } from "typescript";
 
-dotenv.config();
-
 const app = express();
-app.use(cors());
-// middleware -> Parse incoming request bodies in a middleware before your handlers, available under the req.body property
-app.use(bodyParser.json());
 const prisma = new PrismaClient();
-
-// middleware for cross-origin resource sharing -> allows restricted resources on a web page to be requested from another domain outside the original domain
-
-interface PostBody {
-  title: string;
-  category: string;
-  thought: string;
-  //   user: string;
-}
+app.use(cors());
+app.use(bodyParser.json());
+dotenv.config();
 
 // Routes
 
@@ -95,17 +84,34 @@ app.get("/api/posts/all", async (req, res) => {
   }
 });
 
-app.get("/api/posts/:id", (req, res) => {
-  const thoughtId = req.params.id;
+app.get("/api/posts/user", async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1]; // Assuming the token is sent as 'Bearer <token>'
+    if (!token) {
+      return res.status(401).send("No token provided");
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+    const userId = decoded.userId;
+
+    const userPosts = await prisma.post.findMany({
+      where: {
+        userId: userId,
+      },
+    });
+    res.json(userPosts);
+  } catch (error) {
+    console.error("Error retrieving user-specific entries:", error);
+    res.status(500).json({ error: "Failed to retrieve entries" });
+  }
 });
 
 app.post("/api/posts", async (req, res) => {
   try {
     // destructuring the request body -> extract properties
-    const { title, category, thought }: PostBody = req.body;
+    const { title, category, thought } = req.body;
     const post = await prisma.post.create({
       data: {
-        // userId: currentUser.id,
+        userId,
         title,
         category,
         thought,
