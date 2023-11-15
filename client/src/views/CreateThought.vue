@@ -47,6 +47,7 @@ export default {
 	data() {
 		return {
 			// initial component state -> empty properties
+			userId: '',
 			title: '',
 			category: '',
 			thought: '',
@@ -59,14 +60,15 @@ export default {
 					title: this.title,
 					category: this.category,
 					thought: this.thought,
+				}, {
+					headers: {
+						'Authorization': `Bearer ${localStorage.getItem('token')}`
+					}
 				});
-				// status indicates that new ressources have been created on the server based on a POST request
 				if (response.status === 201) {
-					// Reset form inputs
 					this.title = '';
 					this.category = '';
 					this.thought = '';
-					// Navigate to the page where the new post is displayed
 					this.$router.push('/history');
 				} else {
 					console.error('Failed to store the thought :(');

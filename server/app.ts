@@ -108,7 +108,7 @@ app.get("/api/posts/user", async (req, res) => {
 app.post("/api/posts", async (req, res) => {
   try {
     // destructuring the request body -> extract properties
-    const { title, category, thought } = req.body;
+    const { userId, title, category, thought } = req.body;
     const post = await prisma.post.create({
       data: {
         userId,
