@@ -40,6 +40,7 @@
 import { useRouter } from "vue-router";
 import axios from 'axios';
 import backendUrl from '../../config';
+import { ArrowTopRightOnSquareIcon } from "@heroicons/vue/24/outline";
 
 const router = useRouter();
 
@@ -47,7 +48,6 @@ export default {
 	data() {
 		return {
 			// initial component state -> empty properties
-			userId: '',
 			title: '',
 			category: '',
 			thought: '',
@@ -57,6 +57,7 @@ export default {
 		async submitForm() {
 			try {
 				const response = await axios.post('http://localhost:8000/api/posts', {
+					// these are the properties that are sent within the response body
 					title: this.title,
 					category: this.category,
 					thought: this.thought,

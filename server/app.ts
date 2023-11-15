@@ -107,11 +107,18 @@ app.get("/api/posts/user", async (req, res) => {
 
 app.post("/api/posts", async (req, res) => {
   try {
-    // destructuring the request body -> extract properties
-    const { userId, title, category, thought } = req.body;
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return res.status(401).send("No token provided");
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+    const userId = decoded.userId;
+
+    const { title, category, thought } = req.body;
     const post = await prisma.post.create({
       data: {
-        userId,
+        userId, // Extracted from JWT token
         title,
         category,
         thought,

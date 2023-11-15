@@ -62,7 +62,6 @@ export default {
 	},
 	methods: {
 		async signup() {
-
 			try {
 				await axios.post('http://localhost:8000/api/signup', {
 					username: this.username,
