@@ -4,7 +4,7 @@ const development = {
 };
 
 const production = {
-  apiUrl: "",
+  apiUrl: "https://thoughts-backend-9t4f.onrender.com",
 };
 
 const config = process.env.NODE_ENV === "production" ? production : development;

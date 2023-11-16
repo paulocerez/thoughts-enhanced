@@ -103,7 +103,7 @@ export default defineComponent({
 		},
 		async deletePost(postId: number) {
 			try {
-				await axios.delete(`${config.apiUrl}/api/posts/user/${postId}`);
+				await axios.delete(`${config.apiUrl}/api/posts/${postId}`);
 				this.posts = this.posts.filter(post => post.id !== postId);
 
 			} catch (error) {
