@@ -4,7 +4,7 @@
   "main": "server/app.ts",
   "scripts": {
     "test": "jest",
-    "start": "node dist/app.js",
+    "start": "node server.ts",
     "dev": "tsx watch app.ts",
     "build": "npm install && npx tsc"
   },
