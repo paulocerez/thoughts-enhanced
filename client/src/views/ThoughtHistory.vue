@@ -64,7 +64,7 @@
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios';
-import backendUrl from '../../config';
+import baseUrl from '../../config';
 const router = useRouter();
 import DeleteIcon from "../components/ui/DeleteIcon.vue"
 

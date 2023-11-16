@@ -16,7 +16,7 @@
         <div>
           <label for="email" class="block text-left text-sm font-medium leading-6 text-white-900">email address</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" v-model="email" autocomplete="email" required class="loginSignupInputs" />
+            <input id="email" name="email" type="email" v-model="email" required class="loginSignupInputs" />
           </div>
         </div>
 
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="mt-2">
-            <input id="password" name="password" type="password" v-model="password" autocomplete="current-password" required class="loginSignupInputs" />
+            <input id="password" name="password" type="password" v-model="password" required class="loginSignupInputs" />
           </div>
         </div>
 
@@ -67,6 +67,10 @@ export default {
 					username: this.username,
 					email: this.email,
 					password: this.password
+				}, {
+					headers: {
+						'Content-Type': 'application/json'
+					}
 				})
 				this.$router.push('/login');
 			} catch (error) {
