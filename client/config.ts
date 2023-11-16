@@ -1,9 +1,6 @@
 // the variable holds the URL to the Express backend service in order to make HTTP requests from Vue through Axios
-
-const baseUrl = "http://localhost:8000/api";
-
 const development = {
-  apiUrl: "http://localhost:8000/api",
+  apiUrl: "http://localhost:8000",
 };
 
 const production = {

@@ -52,21 +52,16 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="text-white" v-if="posts.length === 0">You have no thoughts currently. Go to the Thoughts page to
-					add them.
-				</div> -->
 			</div>
 		</div>
 	</div>
-	<!-- </div> -->
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios';
-import baseUrl from '../../config';
+import config from '../../config';
 const router = useRouter();
-import DeleteIcon from "../components/ui/DeleteIcon.vue"
 
 
 interface Post {
@@ -81,7 +76,6 @@ interface Post {
 export default defineComponent({
 
 	components: {
-		DeleteIcon
 	},
 
 	data() {
@@ -96,7 +90,7 @@ export default defineComponent({
 	methods: {
 		async fetchPosts() {
 			try {
-				const response = await axios.get<Post[]>('http://localhost:8000/api/posts/user', {
+				const response = await axios.get<Post[]>(`${config.apiUrl}/api/posts/user`, {
 					headers: {
 						'Authorization': `Bearer ${localStorage.getItem('token')}`
 					}
@@ -109,7 +103,7 @@ export default defineComponent({
 		},
 		async deletePost(postId: number) {
 			try {
-				await axios.delete(`http://localhost:8000/api/posts/${postId}`);
+				await axios.delete(`${config.apiUrl}/api/posts/user/${postId}`);
 				this.posts = this.posts.filter(post => post.id !== postId);
 
 			} catch (error) {

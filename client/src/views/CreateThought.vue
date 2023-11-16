@@ -36,11 +36,9 @@
   </div>
 </template>
 <script lang="ts">
-// import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios';
-import backendUrl from '../../config';
-import { ArrowTopRightOnSquareIcon } from "@heroicons/vue/24/outline";
+import config from '../../config';
 
 const router = useRouter();
 
@@ -56,7 +54,7 @@ export default {
 	methods: {
 		async submitForm() {
 			try {
-				const response = await axios.post('http://localhost:8000/api/posts', {
+				const response = await axios.post(`${config.apiUrl}/api/posts`, {
 					// these are the properties that are sent within the response body
 					title: this.title,
 					category: this.category,

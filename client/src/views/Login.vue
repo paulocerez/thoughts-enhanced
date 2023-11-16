@@ -39,6 +39,7 @@
 <script lang="ts">
 import { useRouter } from "vue-router";
 import axios, { AxiosError } from 'axios'
+import config from "../../config"
 
 const router = useRouter();
 
@@ -53,7 +54,7 @@ export default {
 	methods: {
 		async login() {
 			try {
-				const response = await axios.post('http://localhost:8000/api/login', {
+				const response = await axios.post(`${config.apiUrl}/api/login`, {
 					username: this.username,
 					password: this.password
 				}, {

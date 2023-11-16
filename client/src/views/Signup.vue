@@ -48,6 +48,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from 'axios'
+import config from "../../config"
 
 const router = useRouter();
 
@@ -63,7 +64,7 @@ export default {
 	methods: {
 		async signup() {
 			try {
-				await axios.post('http://localhost:8000/api/signup', {
+				await axios.post(`${config.apiUrl}/api/signup`, {
 					username: this.username,
 					email: this.email,
 					password: this.password
