@@ -6,7 +6,7 @@
 				<h2 class="text-gray-300 text-xl">Read through your personal collection.</h2>
 			</div>
 			<router-link to="/thought" class="">
-				<button class=" bg-slate-700 py-2 px-4 rounded-md">Create new thought</button>
+				<button class="bg-slate-700 py-2 px-4 rounded-md w-auto">Create new thought</button>
 			</router-link>
 		</div>
 		<div class="flex flex-col justify-center items-center">

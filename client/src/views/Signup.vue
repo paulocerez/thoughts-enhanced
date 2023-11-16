@@ -75,7 +75,7 @@ export default {
 				})
 				this.$router.push('/login');
 			} catch (error) {
-				alert('Signup failed... 😳');
+				alert('Signup failed. Seems you already have an account.');
 			}
 		}
 	}

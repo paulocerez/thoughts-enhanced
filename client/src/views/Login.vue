@@ -86,7 +86,7 @@ export default {
 					// Non-Axios errors
 					console.error("Error during login:", error.message);
 				}
-				alert("Login failed... 😅");
+				alert("This password-username combination doesn't seem familiar 😳");
 			}
 		}
 	}
