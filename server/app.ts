@@ -114,6 +114,7 @@ app.post("/api/posts", async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
     const userId = decoded.userId;
+    console.log(userId);
 
     const { title, category, thought } = req.body;
     const post = await prisma.post.create({
