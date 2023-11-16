@@ -5,38 +5,6 @@
   </a>
 </h1>
 
-<div align="center">
-  Thoughts
-  <br />
-  <a href="#about"><strong>Explore the docs »</strong></a>
-  <br />
-  <br />
-  <a href="https://github.com/paulocerez/thoughts-enhanced/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
-  ·
-  <a href="https://github.com/paulocerez/thoughts-enhanced/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
-  .
-  <a href="https://github.com/paulocerez/thoughts-enhanced/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
-</div>
-
-<details open="open">
-<summary>Table of Contents</summary>
-
-- [About](#about)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Support](#support)
-- [Project assistance](#project-assistance)
-- [Contributing](#contributing)
-- [Authors & contributors](#authors--contributors)
-
-</details>
-
----
-
 ## About
 
 Thoughts is a web application that captures any thoughts that cross your mind your mind. It's simple to use, minimalistic and includes some humor. ;)
@@ -53,13 +21,6 @@ Thoughts is a web application that captures any thoughts that cross your mind yo
 - TypeScript: superset of JS that adds static typing and other features for easier and more reliable development
 - Git/GitHub: version control system and web-based platform for tracking changes to code and collaborating with other developers
 - Vue Router: routing library for adding client-side routing to Vue.js apps for easy navigation between views and components.
-
-### Software Architecture
-
-<img src="./dist/assets/thoughts_architecture.jpg" alt="Software Architecture" width="" height="">
-<img src="./public/thoughts_logo.png" alt="Logo" width="100" height="100">
-
-## Getting Started
 
 ### Prerequisites
 
