@@ -67,35 +67,29 @@ Thoughts is a web application that captures any thoughts that cross your mind yo
 - npm (>= v6)
 - git
 
-### Installation
+### Installation/Setup
 
 ```bash
 
 git clone https://github.com/paulocerez/thoughts-enhanced.git
 
-# ignore any Docker-related files at the moment, don't build via docker-compose!
-
-# install dependencies for the backend
+# install dependencies for the backend and run the server locally
 cd server
 npm i
+npm run dev
 
-# apply db migrations to db
-npx prisma migrate dev
+copy the .env.example file and rename as .env into your root file in the server folder
 
-# run the backend development server
-npm run start
 
-# install dependencies for the frontend
+
+
+# install dependencies for the frontend and run the frontend locally
 cd client
 npm i
-
-# run the frontend development server
 npm run dev
+
+
+# build up the postgres database container
+docker compose up -d
+
 ```
-
-## Roadmap
-
-- User Authentication with Login/Signup (currently didn't implement this out of time issues)
-- Responsiveness (same issue)
-- "Under construction" Sections to be done
-- Share thoughts with friends

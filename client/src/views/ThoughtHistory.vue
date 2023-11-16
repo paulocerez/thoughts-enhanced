@@ -120,7 +120,7 @@ export default defineComponent({
 		async savePost(post: Post) {
 			try {
 				post.isEditing = false;
-				await axios.put(`http://localhost:8000/api/posts/${post.id}`, post);
+				await axios.put(`${config.apiUrl}/api/posts/${post.id}`, post);
 			} catch (error) {
 				console.error(error);
 			}
